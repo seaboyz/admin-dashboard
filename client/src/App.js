@@ -1,9 +1,9 @@
-import { Dashboard } from "@mui/icons-material";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "scenes/dashboard/index.jsx";
 import Layout from "scenes/layout/index.jsx";
 import { themeSettings } from "theme.js";
 
