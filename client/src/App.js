@@ -4,6 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Layout from "scenes/layout/index.jsx";
 import { themeSettings } from "theme.js";
 
 function App() {
