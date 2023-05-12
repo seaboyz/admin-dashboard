@@ -24,7 +24,10 @@ const Layout = () => {
                 width="100%"
                 height="100%"
             >
-                <Navbar isSidebarOpen={isSidebarOpen} />
+                <Navbar
+                    isSidebarOpen={isSidebarOpen}
+                    setSidebarOpen={setSidebarOpen}
+                />
                 <Outlet />
             </Box>
         </Box>

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import FlexBetween from "./FlexBetween.jsx";
 import { setMode } from "state/index.js";
 
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen, setSidebarOpen }) => {
     const dispatch = useDispatch();
     const theme = useTheme();
     return (
@@ -18,7 +18,7 @@ const Navbar = () => {
                 {/* left side */}
                 <FlexBetween>
                     {/* hamburger */}
-                    <IconButton onClick={() => console.log("open/close sidebar")}>
+                    <IconButton onClick={() => setSidebarOpen(!isSidebarOpen)}>
                         <MenuIcon />
                     </IconButton>
                     {/* search bar */}
