@@ -17,9 +17,11 @@ const Navbar = () => {
             <Toolbar sx={{ justifyContent: "space-between" }}>
                 {/* left side */}
                 <FlexBetween>
+                    {/* hamburger */}
                     <IconButton onClick={() => console.log("open/close sidebar")}>
                         <MenuIcon />
                     </IconButton>
+                    {/* search bar */}
                     <FlexBetween
                         backgroundColor={theme.palette.background.alt}
                         borderRadius="9px"
@@ -42,12 +44,12 @@ const Navbar = () => {
                                 : <LightModeOutlined sx={{ fontSize: "25px" }} />
                         }
                     </IconButton>
+                    {/* setting button */}
                     <IconButton>
                         <SettingsOutlined sx={{ fontsize: "25px" }} />
                     </IconButton>
                 </FlexBetween>
             </Toolbar>
-
         </AppBar>
     );
 };
