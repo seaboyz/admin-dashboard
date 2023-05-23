@@ -8,7 +8,7 @@ export const globalSlice = createSlice({
     name: "global",
     initialState,
     reducers: {
-        setMode: state => state.mode = mode
+        setMode: mode => state.mode = mode
     }
 });
 
