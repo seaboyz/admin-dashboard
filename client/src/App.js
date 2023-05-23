@@ -1,32 +1,27 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Dashboard from "scenes/dashboard/index.jsx";
-import Layout from "scenes/layout/index.jsx";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import { createTheme, CssBaseline, IconButton, ThemeProvider, Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setMode } from "redux/slice.js";
 import { themeSettings } from "theme.js";
 
 function App() {
   const mode = useSelector(state => state.global.mode);
-  const theme = useMemo(
-    () => createTheme(themeSettings(mode)),
-    [mode]);
+  const theme = createTheme(themeSettings(mode));
+  const dispatch = useDispatch();
+
+
   return (
-    <div className="app">
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Routes>
-            <Route element={<Layout />}>
-              {/* when reach the "/", browser will be redirected to "/dashboard" */}
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Route>
-          </Routes>
-        </ThemeProvider>
-      </BrowserRouter>
-    </div >
+    <ThemeProvider theme={theme}>
+      {/* enable the dark mode for the whole app */}
+      <CssBaseline />
+      <IconButton onClick={() => dispatch(setMode())}>
+        {
+          theme.palette.mode === "dark"
+            ? <DarkModeOutlined sx={{ fontSize: "25px" }} />
+            : <LightModeOutlined sx={{ fontSize: "25px" }} />
+        }
+      </IconButton>
+    </ThemeProvider>
   );
 }
 
