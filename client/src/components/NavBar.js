@@ -16,22 +16,25 @@ const NavBar = () => {
 				boxShadow: "none"
 			}}
 		>
-			<Toolbar>
-
-				<IconButton >
-					<Menu />
-				</IconButton>
-
-				<FlexBetween sx={{
-					bgcolor: "background.alt",
-					p: "0.1rem 1.5rem",
-				}}>
-					<InputBase placeholder="Search..." />
-					<IconButton>
-						<Search />
+			<Toolbar sx={{ justifyContent: "space-between" }}>
+				{/* Left side */}
+				<FlexBetween>
+					<IconButton >
+						<Menu />
 					</IconButton>
+					<FlexBetween sx={{
+						bgcolor: "background.alt",
+						p: "0.1rem 1.5rem",
+						gap: "3rem",
+						borderRadius: "9px"
+					}}>
+						<InputBase placeholder="Search..." />
+						<IconButton>
+							<Search />
+						</IconButton>
+					</FlexBetween>
 				</FlexBetween>
-
+				{/* Right side */}
 				<IconButton onClick={() => dispatch(setMode())} >
 					{
 						theme.palette.mode === "dark"
