@@ -1,4 +1,5 @@
 import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import Layout from "components/Layout.js";
 import NavBar from "components/NavBar.js";
 import Sidebar from "components/Sidebar.js";
 import { useState } from "react";
@@ -15,17 +16,7 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* enable the dark mode for the whole app */}
       <CssBaseline />
-      <Box
-        display="flex"
-        width="100%"
-        height="100%"
-      >
-        <Sidebar isSidebarOpen={isSidebarOpen} />
-        <NavBar
-          isSidebarOpen={isSidebarOpen}
-          setSidebarOpen={setSidebarOpen}
-        />
-      </Box>
+      <Layout />
     </ThemeProvider>
   );
 }
