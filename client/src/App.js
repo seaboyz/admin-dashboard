@@ -1,5 +1,6 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import NavBar from "components/NavBar.js";
+import Sidebar from "components/Sidebar.js";
 import { useSelector } from "react-redux";
 import { themeSettings } from "theme.js";
 
@@ -11,7 +12,14 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* enable the dark mode for the whole app */}
       <CssBaseline />
-      <NavBar />
+      <Box
+        display="flex"
+        width="100%"
+        height="100%"
+      >
+        <Sidebar />
+        <NavBar />
+      </Box>
     </ThemeProvider>
   );
 }
