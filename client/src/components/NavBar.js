@@ -1,4 +1,4 @@
-import { DarkModeOutlined, LightModeOutlined, Menu, Search } from "@mui/icons-material";
+import { DarkModeOutlined, LightModeOutlined, Menu, Search, SettingsOutlined } from "@mui/icons-material";
 import { AppBar, Box, IconButton, InputBase, Toolbar, Typography, useTheme } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setMode } from "redux/slice.js";
@@ -35,13 +35,18 @@ const NavBar = () => {
 					</FlexBetween>
 				</FlexBetween>
 				{/* Right side */}
-				<IconButton onClick={() => dispatch(setMode())} >
-					{
-						theme.palette.mode === "dark"
-							? <DarkModeOutlined sx={{ fontSize: "25px" }} />
-							: <LightModeOutlined sx={{ fontSize: "25px" }} />
-					}
-				</IconButton>
+				<FlexBetween sx={{ gap: "1.5rem" }}>
+					<IconButton onClick={() => dispatch(setMode())} >
+						{
+							theme.palette.mode === "dark"
+								? <DarkModeOutlined sx={{ fontSize: "25px" }} />
+								: <LightModeOutlined sx={{ fontSize: "25px" }} />
+						}
+					</IconButton>
+					<IconButton>
+						<SettingsOutlined sx={{ fontsize: "25px" }} />
+					</IconButton>
+				</FlexBetween>
 
 			</Toolbar>
 		</AppBar >
