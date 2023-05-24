@@ -62,14 +62,14 @@ const navItems = [
     }
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
     const theme = useTheme();
 
 
     return (
         <Box component="nav">
             <Drawer
-                open
+                open={isSidebarOpen}
                 variant="persistent"
                 anchor="left"
                 sx={{
