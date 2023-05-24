@@ -20,8 +20,7 @@ function App() {
         width="100%"
         height="100%"
       >
-        <Sidebar isSidebarOpen={isSidebarOpen}
-        />
+        <Sidebar isSidebarOpen={isSidebarOpen} />
         <NavBar
           isSidebarOpen={isSidebarOpen}
           setSidebarOpen={setSidebarOpen}

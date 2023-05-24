@@ -62,73 +62,70 @@ const navItems = [
     }
 ];
 
-const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
+const Sidebar = ({ isSidebarOpen }) => {
     const theme = useTheme();
 
-
-    return (
-        <Box component="nav">
-            <Drawer
-                open={isSidebarOpen}
-                variant="persistent"
-                anchor="left"
-                sx={{
-                    "& .MuiDrawer-paper": {
-                        bgcolor: "background.alt",
-                        boxSizing: "border-box",
-                        borderWidth: "2px",
-                        width: "250px"
-                    },
+    // to be able to make side bar responsive, it has to be conditional rendered.
+    if (isSidebarOpen)
+        return <Drawer
+            open={isSidebarOpen}
+            variant="persistent"
+            anchor="left"
+            sx={{
+                "& .MuiDrawer-paper": {
+                    bgcolor: "background.alt",
+                    boxSizing: "border-box",
+                    borderWidth: "2px",
                     width: "250px"
-                }}
-            >
-                <Box width="100%" >
-                    <Box m="1.5rem 2rem 2rem 3rem">
-                        <Typography
-                            variant="h4"
-                            fontWeight="bold"
-                            color={theme.palette.secondary[200]}
-                        >
-                            ECOMVISION
-                        </Typography>
+                },
+                width: "250px"
+            }}
+        >
+            <Box width="100%" >
+                <Box m="1.5rem 2rem 2rem 3rem">
+                    <Typography
+                        variant="h4"
+                        fontWeight="bold"
+                        color={theme.palette.secondary[200]}
+                    >
+                        ECOMVISION
+                    </Typography>
 
-                    </Box>
-                    <List >
-                        {navItems.map(({ text, icon }) => {
-                            if (!icon) {
-                                return (
-                                    <Typography
-                                        key={text}
-                                        sx={{ m: "2.25rem 0 1rem 3rem" }}
-                                    >
-                                        {text}
-                                    </Typography>);
-                            } else {
-                                return <ListItem key={text} disablePadding>
-                                    <ListItemButton
-                                        sx={{
-                                            backgroundColor: "transparent",
-                                            color: theme.palette.secondary[100]
-                                        }}
-                                    >
-                                        <ListItemIcon
-                                            sx={{
-                                                ml: "2rem",
-                                                color: theme.palette.secondary[200]
-                                            }}>
-                                            {icon}
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                        <ChevronRightOutlined sx={{ ml: "auto" }} />
-                                    </ListItemButton>
-                                </ListItem>;
-                            }
-                        })}
-                    </List>
                 </Box>
-            </Drawer >
-        </Box>
-    );
+                <List >
+                    {navItems.map(({ text, icon }) => {
+                        if (!icon) {
+                            return (
+                                <Typography
+                                    key={text}
+                                    sx={{ m: "2.25rem 0 1rem 3rem" }}
+                                >
+                                    {text}
+                                </Typography>);
+                        } else {
+                            return <ListItem key={text} disablePadding>
+                                <ListItemButton
+                                    sx={{
+                                        backgroundColor: "transparent",
+                                        color: theme.palette.secondary[100]
+                                    }}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            ml: "2rem",
+                                            color: theme.palette.secondary[200]
+                                        }}>
+                                        {icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} />
+                                    <ChevronRightOutlined sx={{ ml: "auto" }} />
+                                </ListItemButton>
+                            </ListItem>;
+                        }
+                    })}
+                </List>
+            </Box>
+        </Drawer >;
 };
 
 export default Sidebar;
