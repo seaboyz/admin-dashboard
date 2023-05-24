@@ -82,13 +82,27 @@ const Sidebar = () => {
                     width: "250px"
                 }}
             >
-                <Box width="100%">
+                <Box width="100%" >
+                    <Box m="1.5rem 2rem 2rem 3rem">
+                        <Typography
+                            variant="h4"
+                            fontWeight="bold"
+                            color={theme.palette.secondary[200]}
+                        >
+                            ECOMVISION
+                        </Typography>
+
+                    </Box>
                     <List >
                         {navItems.map(({ text, icon }) => {
                             if (!icon) {
-                                return <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
-                                    {text}
-                                </Typography>;
+                                return (
+                                    <Typography
+                                        key={text}
+                                        sx={{ m: "2.25rem 0 1rem 3rem" }}
+                                    >
+                                        {text}
+                                    </Typography>);
                             } else {
                                 return <ListItem key={text} disablePadding>
                                     <ListItemButton
